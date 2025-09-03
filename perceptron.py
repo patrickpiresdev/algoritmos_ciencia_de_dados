@@ -8,12 +8,11 @@ def sinal(x):
     return 0
 
 def perceptron(X, y):
-    X = np.array([[1] + x for x in X])
+    X = np.array([[1] + x for x in X]) # adicionando 1 na frente de tudo para que o peso correspondente seja o bias
     d = X.shape[1]
     W = np.ones(d).T / d
 
     l = True
-    i = 0
     while l:
         l = False
 
@@ -22,10 +21,7 @@ def perceptron(X, y):
             if y_classified != y_i:
                 W = W + y_i * x
                 l = True
-        
-        i += 1
 
-    print(i)
     return W
 
 X = [[0, 0], [0, 1], [1, 0], [1, 1]]
